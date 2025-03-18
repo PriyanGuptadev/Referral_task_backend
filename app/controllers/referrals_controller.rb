@@ -17,7 +17,7 @@ class ReferralsController < ApplicationController
     referral_link = params[:referral_link]
 
     if user_email.present? && referral_link.present?
-      UserMailer.referral_email(user_email, referral_link).deliver_now
+      UserMailer.referral_email(user_email, referral_link).deliver_later
       render json: { message: 'Referral email sent successfully' }, status: :ok
     else
       render json: { error: 'Missing email or referral link' }, status: :unprocessable_entity

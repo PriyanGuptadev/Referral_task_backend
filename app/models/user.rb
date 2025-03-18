@@ -26,9 +26,9 @@ class User < ApplicationRecord
     send_welcome_email
     process_referral if referred_by.present?
   end
-  
+
   def send_welcome_email
-    UserMailer.welcome_email(self).deliver_now
+    UserMailer.welcome_email(self).deliver_later
   end
 
   def process_referral
