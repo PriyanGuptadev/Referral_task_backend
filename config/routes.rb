@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   get 'referrals/generate_code', to: 'referrals#generate_code'
   get 'referrals/statistics', to: 'referrals#referral_statistics'
+  post 'send_referral_email', to: 'referrals#sent_mail_to_user'
   # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
   # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
   # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
