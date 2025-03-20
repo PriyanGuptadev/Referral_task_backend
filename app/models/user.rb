@@ -36,5 +36,6 @@ class User < ApplicationRecord
     return unless referrer
 
     referrer.increment!(:referral_bonus, 10) # Add referral bonus to the referrer
+    UserMailer.joined_email(referrer.email, self.email).deliver_later
   end
 end

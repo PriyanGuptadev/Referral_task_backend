@@ -10,4 +10,10 @@ class UserMailer < ApplicationMailer
     @referral_link = referral_link
     mail(to: user_email, subject: "You've been invited!")
   end
+
+  def joined_email(referrer_email, joined_user_email)
+     @joined_user_email = joined_user_email
+     @referrer_user_email = referrer_email 
+     mail(to: @referrer_user_email, subject: "User has joined!")
+  end  
 end
